@@ -1,6 +1,9 @@
 locals {
   tags = {
     version = "1.0"
-    name    = "ec2-terraform-demo"
+    project = "s3-static-website"
   }
+
+  site_path = "${path.module}/site"
+  files     = fileset(local.site_path, "**")
 }
